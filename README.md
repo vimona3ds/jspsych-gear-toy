@@ -1,11 +1,13 @@
-# gears.d3.js #
+# jspsych-gear-toy
 
-_Gears.d3.js_ is a [d3.js](http://d3js.org/) example for creating simulated gear animations with SVG.
+## What is this?
+_jspsych-gear-toy_ is a jsPsych plugin integrated with _gears.d3.js_ by [Liam Brummitt](https://github.com/liabru/gears-d3-js)
 
-See the [demo](https://codepen.io/liabru/pen/Edinj). Based on this [example](http://bl.ocks.org/mbostock/1353700) by [Mike Bostock](https://github.com/mbostock).
+## Why did you make this?
+It makes for an interesting experiment.
 
-## License ##
-
-MIT (with permission granted from [Mike Bostock](https://github.com/mbostock)).
-
-Note: the Fractal Gears implementation, as it is on my personal website, is not open source.
+## How do you use this?
+Integrate this plugin on a page with jsPsych using:
+```HTML
+<script src="plugins/jspsych-gear-toy.js"></script>
+```
