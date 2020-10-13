@@ -192,9 +192,9 @@ var Gear = {
     gearCollides: function(gearA, gearB, tolerance) {
         var threshold = gearA.radius + gearB.radius - Math.max(gearA.addendum, gearB.addendum) + tolerance;
                 tolerance = tolerance || 0;
-      
-        if (gearA.id === gearB.id || 
-            Math.abs(gearA.x - gearB.x) > threshold || 
+
+        if (gearA.id === gearB.id ||
+            Math.abs(gearA.x - gearB.x) > threshold ||
             Math.abs(gearA.y - gearB.y) > threshold)
                 return false;
 
@@ -206,7 +206,7 @@ var Gear = {
 
     propagateGears: function(gear, visited) {
         var connected = gear.connected;
-      
+
         visited = visited || {};
         visited[gear.id] = true;
 
@@ -227,10 +227,10 @@ var Gear = {
     },
 
     updateGears: function(gears) {
-        var gearA, 
+        var gearA,
             gearB,
             datum;
-      
+
         for (var i = 0; i < gears.length; i += 1) {
             datum = gears[i].datum();
             datum.connected = {};
@@ -245,7 +245,7 @@ var Gear = {
                 var datumA = gearA.datum(),
                     datumB = gearB.datum(),
                     collides = Gear.gearCollides(datumA, datumB, Math.max(datumA.addendum, + datumB.addendum));
-              
+
                 if (collides) {
                     datumA.connected[datumB.id] = datumB;
                     datumB.connected[datumA.id] = datumA;
@@ -263,7 +263,7 @@ var Gear = {
                 connectedKeys = Gear.Utility.keys(nextGear.connected);
 
             if (connectedKeys.length === 0)
-                continue;  
+                continue;
 
             var gear = nextGear.connected[connectedKeys[0]];
 

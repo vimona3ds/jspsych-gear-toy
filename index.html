@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex">
-        <title>Gear Toy</title>
-        <link rel="stylesheet" href="./gear-toy.css">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js"></script>
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
-        <script type="text/javascript" src="./gears.d3.js"></script>
-        <script type="text/javascript" src="./gear-toy.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Gear Toy</h1>
-            <div class="nav"><a href="http://brm.io/gears-d3-js/">Project page</a> <span class="nav-sep">&middot;</span> <a href="https://github.com/liabru/gears-d3-js">GitHub</a></div>
-            <ul>
-                <li>Click and drag the gears to move them, use the toolbar on the right to change how they look</li>
-            </ul>
-            <div class="gears-d3-canvas"></div>
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>jsPsych Gear Toy</title>
+
+    <link rel="stylesheet" href="css/jspsych.css">
+    <link rel="stylesheet" href="css/gear-toy.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+    <script src="js/gears.d3.js"></script>
+  </head>
+  <body>
+    <script src="js/jspsych.js"></script>
+    <script src="plugins/jspsych-gear-toy.js"></script>
+    <script>
+      const timeline = [{
+        type: "gear-toy",
+          // how many gears
+        number: 30,
+          // this is how sizes are calculated, anything below 32 does not exist
+        factors: [32, 48, 64, 80, 96, 108, 124],
+          // these styles are in the css file gear-toy.css
+        styles: ["style-0", "style-1", "style-2", "style-3", "style-4"],
+          // speed of 1 powered gear
+        speed: 0.01,
+          // make the powered gear yellow, therefore revealing it immediately = true
+        highlight_powered: false
+      }];
+
+      jsPsych.init({
+        timeline: timeline,
+        show_progress_bar: true,
+        on_finish: () => {
+          jsPsych.data.displayData();
+        }
+      });
+    </script>
+  </body>
 </html>
