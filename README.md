@@ -11,3 +11,6 @@ Integrate this plugin on a page with jsPsych using:
 ```HTML
 <script src="plugins/jspsych-gear-toy.js"></script>
 ```
+
+## License
+MIT
